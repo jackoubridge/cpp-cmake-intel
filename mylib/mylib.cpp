@@ -1,10 +1,10 @@
 #include "mylib.h"
 
-void sayHello(int num)
+extern "C" void sayHello(int num)
 {
-	while(true)
+    while(true)
 	{
-	std::cout << "Hello from my shared library! " << num << std::endl;
-	std::this_thread::sleep_for(std::chrono::seconds(1));
+	    std::cout << "Hello from my shared library! " << num << std::endl;
+	    std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
 }

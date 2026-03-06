@@ -3,4 +3,4 @@
 #include <thread>
 #include <chrono>
 
-void sayHello(int);
+extern "C" void sayHello(int);
