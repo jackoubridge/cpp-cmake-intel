@@ -7,7 +7,3 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(my_app src/main.cpp)
 target_include_directories(my_app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-if(UNIX AND NOT APPLE)
-	target_link_libraries(my_app PRIVATE dl)
-endif()
