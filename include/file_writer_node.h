@@ -1,5 +1,6 @@
 #pragma once
 #include <oneapi/tbb.h>
+#include <ipp/ipps.h>
 #include "data_block.h"
 #include <fstream>
 

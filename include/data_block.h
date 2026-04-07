@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
+#include <ipp/ipps.h>
 
 struct DataBlock
 {
-    std::vector<float> data;
+    Ipp32f* data;
+    int dataSize;
     float sampleRate;
 };

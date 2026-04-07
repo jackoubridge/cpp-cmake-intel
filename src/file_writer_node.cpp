@@ -6,8 +6,10 @@ FileWriterNode::FileWriterNode(tbb::flow::graph& g)
 	    std::ofstream file("tone-out.raw", std::ios::binary);
 
 	    file.write(
-		    reinterpret_cast<const char*>(block.data.data()),
-		    block.data.size() * sizeof(float)
+		    reinterpret_cast<const char*>(block.data),
+		    block.dataSize * sizeof(float)
 	    );
+
+	    ippsFree(block.data);
     })
 {}

@@ -26,12 +26,14 @@ FileReaderNode::FileReaderNode(tbb::flow::graph& g)
         std::streamsize size = file.tellg();
         file.seekg(0, std::ios::beg);
 
-        size_t numSamples = size / sizeof(float);
+        int numSamples = size / sizeof(Ipp32f);
 
-        block.data.resize(numSamples);
+	block.dataSize = numSamples;
         block.sampleRate = 44100;
 
-        if (!file.read(reinterpret_cast<char*>(block.data.data()), size))
+	block.data = ippsMalloc_32f(numSamples);
+
+        if (!file.read(reinterpret_cast<char*>(block.data), size))
         {
             std::cerr << "Failed to read file\n";
         }
